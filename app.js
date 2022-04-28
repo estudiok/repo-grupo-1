@@ -13,14 +13,46 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 // creacion de un usuario modo test
-// const user = new Usuario({ nombre: 'test1'});
-// user.save();
+
+
 // rutas
 app.get('/getUsuarios', (req, res) => {
     Usuario.find({})
         .then((list) => {res.send(list); console.log(list)})
         .catch( (error) => {console.log(error)});
 })
+
+app.post('/saveUsuario', (req, res) => {
+
+    console.log(req.params);
+    console.log(req.body);
+    console.log();
+    
+    // const user = new Usuario({ 
+    //     nombre: 'test1',
+    //     correo: 'adasasd@gmail.com',
+    //     contrasena: 'asdasdasdsa',
+    //     rol: 'admin',
+    //     imagen: 'image.png'
+    // });
+    // user.save();
+
+})
+
+
+app.get('/updateUsuario', (req, res) => {
+    Usuario.find({})
+        .then((list) => {res.send(list); console.log(list)})
+        .catch( (error) => {console.log(error)});
+})
+
+
+app.get('/showUsuario', (req, res) => {
+    Usuario.find({})
+        .then((list) => {res.send(list); console.log(list)})
+        .catch( (error) => {console.log(error)});
+})
+
 
 app.listen( 3000, () => {
     console.log('iniciando server en puerto 3000');
